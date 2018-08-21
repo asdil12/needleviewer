@@ -49,7 +49,6 @@ for area in j.get('area', []):
 	y1 = y0 + area['height']
 
 	if area['type'] == 'match':
-		color = "#476042"
 		color = "green"
 	elif area['type'] == 'ocr':
 		color = 'yellow'
