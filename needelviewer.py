@@ -52,6 +52,8 @@ for area in j.get('area', []):
 		color = "green"
 	elif area['type'] == 'ocr':
 		color = 'yellow'
+	elif area['type'] == 'click':
+		color = 'yellow'
 	elif area['type'] == 'exclude':
 		color = 'red'
 
