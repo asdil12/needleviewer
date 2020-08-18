@@ -10,6 +10,13 @@ import os
 import re
 import json
 
+def circle(canvas, x, y, radius, **kwargs):
+	x0 = x - radius
+	y0 = y - radius
+	x1 = x + radius
+	y1 = y + radius
+	return c.create_oval(x0, y0, x1, y1, **kwargs)
+
 if len(sys.argv) != 2:
 	print("openQA Needle Viewer")
 	print("")
@@ -52,8 +59,6 @@ for area in j.get('area', []):
 		color = "green"
 	elif area['type'] == 'ocr':
 		color = 'yellow'
-	elif area['type'] == 'click':
-		color = 'yellow'
 	elif area['type'] == 'exclude':
 		color = 'red'
 
@@ -61,5 +66,11 @@ for area in j.get('area', []):
 	c.create_line(x0, y1, x1, y1, fill=color, width=3)
 	c.create_line(x0, y0, x0, y1, fill=color, width=3)
 	c.create_line(x1, y0, x1, y1, fill=color, width=3)
+
+	if 'click_point' in area:
+		p = area['click_point']
+		x = x0 + p['xpos']
+		y = y0 + p['ypos']
+		circle(c, x, y, 7, outline='orange', width=3)
 
 mainloop()
