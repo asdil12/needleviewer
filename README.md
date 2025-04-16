@@ -1,3 +1,6 @@
+> [!WARNING]
+> Moved to https://codeberg.org/asdil12/needleviewer
+
 # needleviewer
 
 This tool can be used to display [openQA](http://open.qa/) needles with their areas.
